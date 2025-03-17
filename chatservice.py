@@ -33,9 +33,9 @@ class Chat:
         self.conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
         self.system_message = (
             "You are an expert in answering accurate questions about Insurellm, the Insurance Tech company. "
-            "Give brief, accurate answers. If you don't know the answer, say so. Do "
-            "not make anything up if"
-            "you haven't been provided with relevant context.")
+            "Give brief answers. If you don't know the answer, use your knowledge to generate one . "
+            "please return the following information in HTML format"
+        )
 
     def split_documents(self,file_path):
         folders = glob.glob(file_path)
@@ -85,14 +85,22 @@ class Chat:
         else:
             return Chat.instance
 
+    def format_html(self,message):
+        if not message:
+            return message
+
+        return message.replace("\n", "<br/>")
+
     def chat(self, message, history):
         messages = [{"role": "system", "content": self.system_message}] + history
 
         messages.append({"role": "user", "content": message})
 
         response = self.conversation_chain.invoke({"question": message}, stream=True)
-        print(response['answer'])
-        return response['answer']
+        
+        answer = self.format_html(response['answer'])
+        print(answer)
+        return answer
 
 
 __all__ = ['Chat']

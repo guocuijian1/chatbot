@@ -5,6 +5,7 @@ from webassets import Bundle
 from chatservice import Chat
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 # Setup Flask-Assets
 assets = Environment(app)
 
@@ -23,7 +24,7 @@ def chat():  # put application's code here
     user_message = request.json.get('message')
     ins = Chat.get_instance()
     response = ins.chat(user_message, [])
-    return {'response': response}
+    return jsonify({'response': response})
 
 
 if __name__ == '__main__':
