@@ -14,6 +14,7 @@ scss = Bundle('scss/style.scss', output='css/style.css', filters='libsass')
 assets.register('scss_all', scss)
 scss.build()  # This compiles SCSS into CSS
 
+
 @app.route('/')
 def hello_world():  # put application's code here
     return render_template('index.html')
@@ -22,8 +23,7 @@ def hello_world():  # put application's code here
 @app.route('/chat', methods=['POST'])
 def chat():  # put application's code here
     user_message = request.json.get('message')
-    ins = Chat.get_instance()
-    response = ins.chat(user_message, [])
+    response = Chat.chat(user_message, [])
     return jsonify({'response': response})
 
 
