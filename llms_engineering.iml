@@ -6,10 +6,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/llms/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/llms/include" />
-      <excludeFolder url="file://$MODULE_DIR$/llms/lib" />
-      <excludeFolder url="file://$MODULE_DIR$/llms/share" />
+      <excludeFolder url="file://$MODULE_DIR$/week5/llms/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/week5/llms/include" />
+      <excludeFolder url="file://$MODULE_DIR$/week5/llms/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/week5/llms/share" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (llms_engineering) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
