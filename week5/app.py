@@ -27,5 +27,11 @@ def chat():  # put application's code here
     return jsonify({'response': response})
 
 
+@app.route('/chat/new_topic', methods=['DELETE'])
+def new_topic():  # put application's code here
+    response = Chat.new_topic()
+    return jsonify({'response': response})
+
+
 if __name__ == '__main__':
     app.run(debug=True)

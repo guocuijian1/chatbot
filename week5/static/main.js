@@ -23,6 +23,17 @@ function sendMessage() {
     inputField.value = '';
 }
 
+function newTopic() {
+    fetch('/chat/new_topic', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
 function onKeyEnter(event) {
     if (event.key === 'Enter') {
         sendMessage();
